@@ -1,0 +1,124 @@
+@font-face {
+  font-family: "Play";
+  src: local("Play Regular"), local("Play-Regular"),
+    url("./fonts/Play-Regular.eot?#iefix") format("embedded-opentype"),
+    url("./fonts/Play-Regular.woff2") format("woff2"),
+    url("./fonts/Play-Regular.woff") format("woff"),
+    url("./fonts/Play-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Play";
+  src: url("Play-Bold.eot");
+  src: local("Play Bold"), local("Play-Bold"),
+    url("./fonts/Play-Bold.eot?#iefix") format("embedded-opentype"),
+    url("./fonts/Play-Bold.woff2") format("woff2"),
+    url("./fonts/Play-Bold.woff") format("woff"),
+    url("./fonts/Play-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+img {
+  display: block;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --purle: #dc5dfc;
+  --like: #b5a9ff;
+  --violet: #6a5dc2;
+  --white: #fff;
+  --dark-grey: #393b3c;
+  --grey: #9c9e9d;
+  --light-grey: #bbbac0;
+  --light-black: #222325;
+  --black: #0a0c0b;
+  --blue: #66a5ea;
+  --error: #ff7178;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+body {
+  font-family: "Play";
+  background-color: #0a192c;
+  color: var(--white);
+  position: relative;
+}
+
+.link::before {
+  content: "";
+  bottom: -5px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 1.5px;
+  background-color: var(--purle);
+  transition: 0.3s;
+  transform: scaleX(0);
+}
+
+.active.link::before {
+  transform: scaleX(1);
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  margin: 0;
+}
+
+@supports (padding: max(0px)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+.link {
+  position: relative;
+  transition: all 0.3s;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 64px;
+}
+
+.film-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(224px, 1fr));
+  gap: 40px;
+  grid-row-gap: 64px;
+  flex-wrap: wrap;
+}
+
+.error-message {
+  color: var(--error);
+}

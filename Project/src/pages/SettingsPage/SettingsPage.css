@@ -1,0 +1,37 @@
+.settings__list{
+    margin-bottom: 64px;
+}
+
+.setting__item {
+  display: flex;
+  align-items: center;
+}
+
+.setting__item:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+.setting-item__left-block {
+  margin-right: 16px;
+  display: flex;
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 16px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 30px;
+  font-size: 24px;
+  line-height: 133%;
+  font-weight: bold;
+}
+
+.setting-item__left-block svg{
+  fill: white;
+}
+
+.setting-item__logo {
+  width: 24px;
+  height: 24px;
+}

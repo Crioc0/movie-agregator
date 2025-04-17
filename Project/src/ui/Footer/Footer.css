@@ -1,0 +1,10 @@
+footer {
+  display: flex;
+  padding: 42px 0px;
+  justify-content: flex-end;
+}
+
+.link-list {
+  display: flex;
+  gap: 24px;
+}

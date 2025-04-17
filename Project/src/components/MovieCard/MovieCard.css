@@ -1,0 +1,60 @@
+.card {
+  position: relative;
+  transition: transform 0.1s;
+}
+
+.card:hover {
+  transform: scale(1);
+}
+
+.card__delete {
+  position: absolute;
+  top: -5%;
+  right: -10%;
+  visibility: hidden;
+  background-color: var(--white);
+  z-index: 5;
+  border-radius: 25px;
+  padding: 15px;
+  border: none;
+  cursor: pointer;
+  align-self: flex-end;
+  position: absolute;
+}
+
+.card:hover .card__delete {
+  visibility: visible;
+}
+
+.card__image {
+  display: block;
+  width: 224px;
+}
+
+.card__delete button {
+  z-index: 4;
+}
+
+.card__delete img {
+  width: 24px;
+  height: 24px;
+}
+
+.card__withoutIMG {
+  padding-top: 50px;
+  background-color: grey;
+  height: 286px;
+}
+
+.position {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  padding: 8px 24px;
+  border-radius: 50px;
+  color: var(--violet);
+  background-color: var(--white);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 133%;
+}

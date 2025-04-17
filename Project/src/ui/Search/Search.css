@@ -1,0 +1,52 @@
+.search-block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.input-block__input {
+  border-radius: 24px;
+  border: none;
+  outline: none;
+  min-width: 660px;
+  background-color: #393b3c;
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 1.1;
+  padding: 12px 12px 12px 52px ;
+}
+
+.filter-movie-list {
+  position: absolute;
+  padding: 8px;
+  width: calc(100% - 100px);
+  background-color: #393b3c;
+  border-radius: 16px;
+  top: 55px;
+  z-index: 2;
+}
+
+.filter-movie-list__item {
+  padding: 10px 8px;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+}
+
+.movie-card__img {
+  margin-right: 16px;
+}
+
+.input-block {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.input-block__logo {
+  position: absolute;
+  left:12px
+}

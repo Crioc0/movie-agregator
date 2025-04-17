@@ -1,0 +1,10 @@
+.trailer-contaner{
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    position: relative;
+}
+
+.trailer-contaner iframe{
+    border: none;
+}
