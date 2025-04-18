@@ -4,19 +4,24 @@
 }
 
 .movie-img {
-  object-fit: fill;
-  width: 50%;
+  object-fit: cover;
+
   border-radius: 16px;
   height: 552px;
 }
 
 .content {
   width: 50%;
-  margin-right: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding-bottom: 122px;
+}
+
+.card__img-container {
+  display: flex;
+  width: 50%;
+  justify-content: center;
 }
 
 .content__text {

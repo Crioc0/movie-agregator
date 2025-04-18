@@ -138,7 +138,9 @@ export const MovieInfoCard: FC<TMovieCard> = ({ movie, type }) => {
             </li>
           </ul>
         </div>
-        <img className="movie-img" src={movie.posterUrl} alt="" />
+        <div className="card__img-container">
+          <img className="movie-img" src={movie.posterUrl} alt="" />
+        </div>
       </div>
       {type === "info" && (
         <div className="info">
