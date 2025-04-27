@@ -1,6 +1,7 @@
 .card-container {
   display: flex;
   color: #fff;
+  max-height: 100%;
 }
 
 .movie-img {
@@ -16,6 +17,13 @@
   flex-direction: column;
   justify-content: space-between;
   padding-bottom: 122px;
+}
+
+.label{
+  white-space: nowrap
+}
+.value{
+  white-space: nowrap
 }
 
 .card__img-container {
@@ -46,4 +54,39 @@
 
 .content__header li:not(:last-child) {
   margin-right: 18px;
+}
+
+.info__title {
+  margin-bottom: 64px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 48px;
+}
+
+.dot-container {
+  width: 700px; /* Регулируйте по необходимости */
+  font-family: Arial, sans-serif;
+}
+
+
+
+.dot-leader {
+  display: flex;
+  align-items: baseline;
+  margin: 12px 0;
+  position: relative;
+  justify-content: space-between;
+}
+
+.dotten {
+  background: radial-gradient(circle at center, #000 1.5px, transparent 1.5px)
+    repeat-x;
+  background-size: 6px 100%;
+  background-position: 0 65%;
+  width: 100%;
+  height: 1px;
+}
+
+.dot-leader:not(:last-child){
+  margin-bottom: 24px;
 }

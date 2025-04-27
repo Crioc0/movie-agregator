@@ -144,15 +144,51 @@ export const MovieInfoCard: FC<TMovieCard> = ({ movie, type }) => {
       </div>
       {type === "info" && (
         <div className="info">
-          <h3>О фильме</h3>
-          <ul className="info__list">
-            <li className="info__item">Язык оригинала {movie.language}</li>
-            <li className="info__item">Бюджет {movie.budget}</li>
-            <li className="info__item">Сумма выручки {movie.revenue}</li>
-            <li className="info__item">Режиссер {movie.director}</li>
-            <li className="info__item">Продакшен {movie.production}</li>
-            <li className="info__item">Награды {movie.awardSummary}</li>
-          </ul>
+          <h3 className="info__title">О фильме</h3>
+          <div className="dot-container">
+            <div className="dot-leader">
+              <span className="label">Язык оригинала</span>
+              <span className="dotten"></span>
+              <span className="value">
+                {movie.language ? movie.language : "Нет информации"}
+              </span>
+            </div>
+            <div className="dot-leader">
+              <span className="label">Бюджет</span>
+              <span className="dotten"></span>
+              <span className="value">
+                {movie.budget ? movie.budget : "Нет информации"}
+              </span>
+            </div>
+            <div className="dot-leader">
+              <span className="label">Сумма выручки </span>
+              <span className="dotten"></span>
+              <span className="value">
+                {movie.revenue ? movie.revenue : "Нет информации"}
+              </span>
+            </div>
+            <div className="dot-leader">
+              <span className="label">Режиссер</span>
+              <span className="dotten"></span>
+              <span className="value">
+                {movie.director ? movie.director : "Нет информации"}
+              </span>
+            </div>
+            <div className="dot-leader">
+              <span className="label">Продакшен</span>
+              <span className="dotten"></span>
+              <span className="value">
+                {movie.production ? movie.production : "Нет информации"}
+              </span>
+            </div>
+            <div className="dot-leader">
+              <span className="label">Награды</span>
+              <span className="dotten"></span>
+              <span className="value">
+                {movie.awardSummary ? movie.awardSummary : "Нет информации"}
+              </span>
+            </div>
+          </div>
         </div>
       )}
     </div>

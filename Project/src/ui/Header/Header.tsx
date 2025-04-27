@@ -9,6 +9,7 @@ import {
   NavigationLinks,
   TLink,
 } from "../../components/NavigationLinks/NavigationLinks";
+import React from "react";
 
 const links: TLink[] = [
   {
@@ -21,7 +22,7 @@ const links: TLink[] = [
   },
 ];
 
-export const Header = () => {
+export const Header = React.memo(() => {
   return (
     <header className="header">
       <Link className="logo header-logo" to="/">
@@ -33,4 +34,6 @@ export const Header = () => {
       <AuthModal />
     </header>
   );
-};
+});
+
+

@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getMovieByID } from "../../api/movies";
 import { useParams } from "react-router";
 import { MovieInfoCard } from "../../components/MovieInfoCard/MovieInfoCard";
+import { CardInfoLoader } from "../../ui/Loaders/CardInfoLoader/CardInfoLoader";
 
 export const MovieInfoPage = () => {
   const param = useParams();
@@ -11,7 +12,7 @@ export const MovieInfoPage = () => {
   });
   switch (status) {
     case "pending":
-      return "Загрузка";
+      return <CardInfoLoader />;
     case "success":
       return <MovieInfoCard movie={data} type="info" />;
   }
