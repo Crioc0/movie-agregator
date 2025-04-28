@@ -8,15 +8,13 @@ import { FC } from "react";
 import { Like } from "../../assets/Like";
 import { Refresh } from "../../assets/Refresh";
 import { Link } from "react-router";
-import { useMutation } from "@tanstack/react-query";
-import { addFavourites, deleteFavourites } from "../../api/favourites";
-
-import { TProfile } from "../../types/Profile";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../store";
-import { setIsOpenModal, setProfile } from "../LoginComponent/authSlice";
+import { setIsOpenModal } from "../LoginComponent/authSlice";
 import { setIsOpenTrailer } from "../Trailer/trailerSlice";
 import { Trailer } from "../Trailer/Trailer";
+import useAddFavourite from "../../hooks/useAddFavourite";
+import useRemoveFavourite from "../../hooks/useRemoveFavourite";
 
 export type TMovieCard = {
   movie: TMovie;
@@ -34,51 +32,12 @@ export const MovieInfoCard: FC<TMovieCard> = ({ movie, type }) => {
     querieMovies.invalidateQueries({ queryKey: ["randomMovie"] });
   }
 
-  const likeMutation = useMutation({
-    mutationFn: () => addFavourites(movie.id.toString()),
-    onSuccess: () => {
-      const updatedProfile = querieMovies.getQueryData<TProfile>(["user"]);
-
-      if (updatedProfile) {
-        dispatch(
-          setProfile({
-            ...updatedProfile,
-            favorites: [
-              ...(updatedProfile.favorites || []),
-              movie.id.toString(),
-            ],
-          })
-        );
-      }
-
-      querieMovies.invalidateQueries({ queryKey: ["user"] });
-    },
-  });
-
   const handleOpenClick = () => {
     dispatch(setIsOpenTrailer(!isOpenTrailer));
   };
 
-  const removeFavourite = useMutation({
-    mutationFn: () => deleteFavourites(movie.id),
-    onSuccess: () => {
-      if (profile) {
-        dispatch(
-          setProfile({
-            ...profile,
-            favorites: profile.favorites?.filter(
-              (id) => id !== movie.id.toString()
-            ),
-          })
-        );
-      }
-      querieMovies.invalidateQueries({ queryKey: ["user"] });
-    },
-  });
-
-  const handleRemove = () => {
-    removeFavourite.mutate();
-  };
+  const likeMutation = useAddFavourite(movie.id);
+  const removeMutation = useRemoveFavourite(movie.id);
 
   const isFavourite = () => {
     return profile?.favorites?.includes(movie.id.toString()) ?? false;
@@ -121,7 +80,11 @@ export const MovieInfoCard: FC<TMovieCard> = ({ movie, type }) => {
             </li>
             <li className="content__command-item">
               <Button
-                onClick={isFavourite() ? handleRemove : handleLikeClick}
+                onClick={
+                  isFavourite()
+                    ? () => removeMutation.mutate()
+                    : handleLikeClick
+                }
                 value={movie.id}
                 style="icon"
                 type="button"

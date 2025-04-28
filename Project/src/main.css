@@ -27,8 +27,11 @@ img {
 }
 
 #root {
+  display: flex;
+  flex-direction: column;
   max-width: 1280px;
   margin: 0 auto;
+  min-height: 100vh;
 }
 
 ul {
@@ -62,13 +65,10 @@ h3 {
 }
 
 html {
-  background: linear-gradient(
-      178.73deg,
-      rgba(39, 135, 245, 0.18) -17.53%,
-      rgba(163, 147, 245, 0.18) 131.74%
-    ),
-    linear-gradient(180deg, #000000 0%, rgba(39, 36, 36, 0.7) 100%);
+min-height: 100%;
 }
+
+
 
 body {
   font-family: "Play";

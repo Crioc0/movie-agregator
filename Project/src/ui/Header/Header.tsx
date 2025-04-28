@@ -24,7 +24,7 @@ const links: TLink[] = [
 
 export const Header = React.memo(() => {
   return (
-    <header className="header">
+    <div className="header">
       <Link className="logo header-logo" to="/">
         <img src={Logo} alt="" />
       </Link>
@@ -32,7 +32,7 @@ export const Header = React.memo(() => {
       <NavigationLinks links={links} />
       <Search />
       <AuthModal />
-    </header>
+    </div>
   );
 });
 

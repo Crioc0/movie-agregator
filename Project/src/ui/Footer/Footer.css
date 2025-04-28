@@ -1,5 +1,6 @@
-footer {
+.footer {
   display: flex;
+  margin-top: auto;
   padding: 42px 0px;
   justify-content: flex-end;
 }

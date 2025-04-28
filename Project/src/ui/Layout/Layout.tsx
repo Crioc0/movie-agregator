@@ -16,7 +16,6 @@ export const Layout = (): ReactNode => {
     <>
       <BrowserRouter>
         <Header />
-        <main>
           <Routes>
             <Route path="/" element={<MainPage key={"main-page"} />} />
             <Route path="/genres" element={<GenresPage />} />
@@ -38,7 +37,6 @@ export const Layout = (): ReactNode => {
               />
             </Route>
           </Routes>
-        </main>
       </BrowserRouter>
       <Footer />
     </>

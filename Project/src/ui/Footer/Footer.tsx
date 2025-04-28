@@ -7,7 +7,7 @@ import "./Footer.css";
 
 export const Footer = () => {
   return (
-    <footer>
+    <div className="footer">
       <ul className="link-list">
         <li className="link-list__item">
           <a href="http://vk.com" target="_blank" rel="noopener noreferrer">
@@ -38,6 +38,6 @@ export const Footer = () => {
           </a>
         </li>
       </ul>
-    </footer>
+    </div>
   );
 };
