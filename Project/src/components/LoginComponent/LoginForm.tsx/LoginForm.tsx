@@ -1,7 +1,7 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
 import { Button } from "../../../ui/Button/Button";
 
-import "./LoginForm.css";
+import styles from "../Form.module.scss";
 import { useMutation } from "@tanstack/react-query";
 import { loginSchema, loginUser, TLoginFormData } from "../../../api/users";
 import { querieMovies } from "../../../api/querieMovies";
@@ -46,8 +46,8 @@ export const LoginForm: FC<IRegisterForm> = ({ handleTypeClick }) => {
   };
 
   return (
-    <div className="login-form-container">
-      <form onSubmit={handleSubmit(onSubmit)} className="login-form">
+    <div className={styles.container}>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <FormField
           icon={<Mail errorMessage={errors.email?.message} />}
           errorMessage={errors.email?.message}
@@ -55,7 +55,7 @@ export const LoginForm: FC<IRegisterForm> = ({ handleTypeClick }) => {
           <input
             {...register("email")}
             type="email"
-            className="form__input"
+            className={styles.form__input}
             placeholder="Электронная почта"
             autoComplete="email"
           />
@@ -67,7 +67,7 @@ export const LoginForm: FC<IRegisterForm> = ({ handleTypeClick }) => {
           <input
             {...register("password")}
             type="password"
-            className="form__input"
+            className={styles.form__input}
             placeholder="Пароль"
             autoComplete="current-password"
           />
@@ -87,7 +87,7 @@ export const LoginForm: FC<IRegisterForm> = ({ handleTypeClick }) => {
           {loginMutation.isPending ? "Выполняется вход..." : "Войти"}
         </Button>
       </form>
-      <Button type="button" style="without-border" onClick={handleTypeClick}>
+      <Button type="button" style="withoutBorder" onClick={handleTypeClick}>
         {authType == "auth" ? "Регистрация" : "Уже есть аккаунт"}
       </Button>
     </div>

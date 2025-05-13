@@ -1,13 +1,16 @@
 import { useQueries } from "@tanstack/react-query";
 import { getRandomMovie, getTop10Movies } from "../../api/movies";
-import "./MainPage.css";
-import { MovieInfoCard } from "../../components/MovieInfoCard/MovieInfoCard";
+
+import styles from "./MainPage.module.scss";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
-import { CardListLoader } from "../../ui/Loaders/CardListLoader/CardListLoader";
-import { CardInfoLoader } from "../../ui/Loaders/CardInfoLoader/CardInfoLoader";
+// import { CardListLoader } from "../../ui/Loaders/CardListLoader/CardListLoader";
+import { MovieMainCard } from "../../components/MovieMainCard/MovieMainCard";
+
+import { MovieListByGenreLoader } from "../MovieListByGenre/Loader/MovieListByGenreLoader";
+import { MovieMainCardLoader } from "../../components/MovieMainCard/MovieMainCardLoader/MovieMainCardLoader";
 
 export const MainPage = () => {
-  const movieData = useQueries({
+  const [randomMovie, top10Movies] = useQueries({
     queries: [
       {
         queryKey: ["randomMovie"],
@@ -26,16 +29,16 @@ export const MainPage = () => {
 
   return (
     <>
-      {movieData[0].isLoading && <CardInfoLoader />}
-      {movieData[0].isSuccess && (
-        <MovieInfoCard movie={movieData[0].data} type="random" />
+      {randomMovie.isLoading && <MovieMainCardLoader />}
+      {randomMovie.isSuccess && (
+        <MovieMainCard movie={randomMovie.data} type="random" />
       )}
-      <div className="container-top-10">
-        <h2 className="title">Топ-10 фильмов</h2>
-        {movieData[1].isLoading && <CardListLoader type="movieByGenreList" />}
-        {movieData[1].isSuccess && (
-          <ul className="film-list">
-            {movieData[1].data.map((item, index) => {
+      <div className={styles.container}>
+        <h2 className={styles.title}>Топ-10 фильмов</h2>
+        {top10Movies.isLoading && <MovieListByGenreLoader />}
+        {top10Movies.isSuccess && (
+          <ul className={styles.list}>
+            {top10Movies.data.map((item, index) => {
               return (
                 <li key={item.id}>
                   <MovieCard

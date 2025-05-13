@@ -1,0 +1,89 @@
+.container {
+  display: flex;
+  color: #fff;
+  max-height: 100%;
+
+  @media (max-width: 1040px) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
+
+.textContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 122px;
+
+  .descr {
+    font-size: var(--size-descr);
+    line-height: 133%;
+  }
+
+  @media (max-width: 1040px) {
+    width: 100%;
+  }
+}
+
+.info {
+  margin-bottom: auto;
+}
+
+.imageContainer {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+
+  @media (max-width: 1040px) {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  img {
+    border-radius: 16px;
+    max-height: 552px;
+    @media (max-width: 1040px) {
+      min-height: 0;
+      width: 100%;
+    }
+  }
+}
+
+.aboutTitle {
+  margin-bottom: 64px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 48px;
+}
+
+.dotContainer {
+  max-width: 700px;
+}
+
+.dotLeader {
+  display: flex;
+  align-items: baseline;
+  margin: 12px 0;
+  position: relative;
+  justify-content: space-between;
+
+  &.dot-leader:not(:last-child) {
+    margin-bottom: 24px;
+  }
+}
+
+.dotten {
+  background: radial-gradient(circle at center, #000 1.5px, transparent 1.5px)
+    repeat-x;
+  background-size: 6px 100%;
+  background-position: 0 65%;
+  width: 100%;
+  height: 1px;
+}
+
+.label {
+  white-space: nowrap;
+}
+.value {
+  white-space: nowrap;
+}

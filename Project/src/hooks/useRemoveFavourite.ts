@@ -5,12 +5,13 @@ import { AppDispatch, RootState } from "../store";
 import { setProfile } from "../components/LoginComponent/authSlice";
 import { querieMovies } from "../api/querieMovies";
 
-export default function useRemoveFavourite(id: number) {
+export default function useRemoveFavourite() {
   const dispatch = useDispatch<AppDispatch>();
   const { profile } = useSelector((state: RootState) => state.auth);
   const removeFavourite = useMutation({
-    mutationFn: () => deleteFavourites(id),
+    mutationFn: (id: number) => deleteFavourites(id),
     onSuccess: () => {
+      console.log("успешно");
       if (profile) {
         dispatch(
           setProfile({

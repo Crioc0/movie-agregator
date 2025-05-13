@@ -6,7 +6,8 @@ import {
   registerUser,
 } from "../../../api/users";
 
-import "./RegisterForm.css";
+
+import styles from "../Form.module.scss";
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,8 +17,8 @@ import { UserIcon } from "../../../assets/UserIcon";
 import { PasswordIcon } from "../../../assets/PasswordIcon";
 import { FC } from "react";
 
-import {  useSelector } from "react-redux";
-import {  RootState } from "../../../store";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store";
 
 interface IRegisterForm {
   handleTypeClick: () => void;
@@ -32,7 +33,6 @@ export const RegisterForm: FC<IRegisterForm> = ({ handleTypeClick }) => {
     resolver: zodResolver(registerSchema),
   });
 
-
   const { authType } = useSelector((state: RootState) => state.auth);
 
   const registerMutation = useMutation({
@@ -45,8 +45,8 @@ export const RegisterForm: FC<IRegisterForm> = ({ handleTypeClick }) => {
   if (registerMutation.isSuccess) {
     return (
       <>
-        <h2 className="login-form-title">Регистрация завершена</h2>
-        <p className="login-form-descr">
+        <h2 className={styles.form__title}>Регистрация завершена</h2>
+        <p className={styles.form__descr}>
           Используйте вашу электронную почту для входа
         </p>
         <Button type="submit" style="primary" onClick={handleTypeClick}>
@@ -57,9 +57,9 @@ export const RegisterForm: FC<IRegisterForm> = ({ handleTypeClick }) => {
   }
 
   return (
-    <div className="login-form-container">
-      <h2 className="login-form-title">Зарегистрироваться</h2>
-      <form onSubmit={handleSubmit(onSubmit)} className="login-form">
+    <div className={styles.container}>
+      <h2 className={styles.form__title}>Зарегистрироваться</h2>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <FormField
           icon={<Mail errorMessage={errors.email?.message} />}
           errorMessage={errors.email?.message}
@@ -67,7 +67,7 @@ export const RegisterForm: FC<IRegisterForm> = ({ handleTypeClick }) => {
           <input
             {...register("email")}
             type="email"
-            className="form__input"
+            className={styles.form__input}
             placeholder="Электронная почта"
             autoComplete="email"
           />
@@ -79,7 +79,7 @@ export const RegisterForm: FC<IRegisterForm> = ({ handleTypeClick }) => {
           <input
             {...register("name")}
             type="text"
-            className="form__input"
+            className={styles.form__input}
             placeholder="Имя"
           />
         </FormField>
@@ -90,7 +90,7 @@ export const RegisterForm: FC<IRegisterForm> = ({ handleTypeClick }) => {
           <input
             {...register("surname")}
             type="text"
-            className="form__input"
+            className={styles.form__input}
             placeholder="Фамилия"
           />
         </FormField>
@@ -101,7 +101,7 @@ export const RegisterForm: FC<IRegisterForm> = ({ handleTypeClick }) => {
           <input
             {...register("password")}
             type="password"
-            className="form__input"
+            className={styles.form__input}
             placeholder="Пароль"
             autoComplete="new-password"
           />
@@ -114,7 +114,7 @@ export const RegisterForm: FC<IRegisterForm> = ({ handleTypeClick }) => {
           <input
             {...register("confirmPassword")}
             type="password"
-            className="form__input"
+            className={styles.form__input}
             placeholder="Подтвердите пароль"
             autoComplete="new-password"
           />
@@ -134,7 +134,7 @@ export const RegisterForm: FC<IRegisterForm> = ({ handleTypeClick }) => {
         </Button>
       </form>
 
-      <Button type="button" style="without-border" onClick={handleTypeClick}>
+      <Button type="button" style="withoutBorder" onClick={handleTypeClick}>
         {authType == "auth" ? "Регистрация" : "Уже есть аккаунт"}
       </Button>
     </div>

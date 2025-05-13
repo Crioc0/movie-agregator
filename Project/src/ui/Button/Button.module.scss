@@ -1,0 +1,48 @@
+.button {
+  cursor: pointer;
+  padding: 16px 48px;
+  color: #fff;
+  font-family: "Play";
+  border: none;
+  border-radius: 28px;
+  font-weight: 700;
+font-size: inherit;
+  line-height: 133%;
+  transition: all 0.2s;
+}
+
+.primary {
+  background-color: var(--blue);
+}
+
+.secondary {
+  background-color: var(--dark-grey);
+  &:hover {
+    background-color: var(--white);
+    color: var(--black);
+  }
+}
+
+.icon {
+  background-color: var(--dark-grey);
+  display: flex;
+  align-items: center;
+  padding: 18px 23px;
+  border-radius: 28px;
+  &:hover svg path {
+    fill: #b4a9ff;
+  }
+}
+
+.withoutBorder {
+  background-color: inherit;
+  color: var(--black);
+  background-color: inheri;
+}
+
+.auth {
+  border: none;
+  background-color: inherit;
+  color: var(--white);
+  background-color: inherit;
+}

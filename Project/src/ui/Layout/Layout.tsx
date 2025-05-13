@@ -3,13 +3,13 @@ import { Header } from "../Header/Header";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { MainPage } from "../../pages/MainPage/MainPage";
 
-import { GenresPage } from "../../pages/GenresPage/GenresList";
 import { MovieListByGenre } from "../../pages/MovieListByGenre/MovieListByGenre";
 import { MovieInfoPage } from "../../pages/MovieInfoPage/MovieInfoPage";
 import { ProfilePage } from "../../pages/ProfilePage/ProfilePage";
 import { FavouriteMoviesPage } from "../../pages/FavouriteMoviesPage/FavouriteMoviesPage";
 import { SettingsPage } from "../../pages/SettingsPage/SettingsPage";
 import { Footer } from "../Footer/Footer";
+import { GenresPage } from "../../pages/GenresPage/GenresPage";
 
 export const Layout = (): ReactNode => {
   return (

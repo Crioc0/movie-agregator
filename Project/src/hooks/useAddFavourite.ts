@@ -6,12 +6,12 @@ import { setProfile } from "../components/LoginComponent/authSlice";
 import { querieMovies } from "../api/querieMovies";
 import { TProfile } from "../types/Profile";
 
-export default function useAddFavourite(id: number) {
+export default function useAddFavourite() {
   const dispatch = useDispatch<AppDispatch>();
 
   const likeMutation = useMutation({
-    mutationFn: () => addFavourites(id.toString()),
-    onSuccess: () => {
+    mutationFn: (id: string | number) => addFavourites(id.toString()),
+    onSuccess: (id) => {
       const updatedProfile = querieMovies.getQueryData<TProfile>(["user"]);
 
       if (updatedProfile) {

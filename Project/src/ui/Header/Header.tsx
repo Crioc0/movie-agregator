@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { Search } from "../Search/Search";
 
-import "./header.css";
+import styles from './Header.module.scss'
 import { AuthModal } from "../../components/LoginComponent/AuthModal/AuthModal";
 import {
   NavigationLinks,
@@ -24,8 +24,8 @@ const links: TLink[] = [
 
 export const Header = React.memo(() => {
   return (
-    <div className="header">
-      <Link className="logo header-logo" to="/">
+    <div className={styles.header}>
+      <Link className={styles.logo} to="/">
         <img src={Logo} alt="" />
       </Link>
 

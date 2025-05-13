@@ -1,5 +1,5 @@
 import { FC } from "react";
-import "./Wrapper.css";
+import styles from './Wrapper.module.scss'
 
 interface IWrapper {
   isOpenModal: boolean | undefined;
@@ -8,7 +8,7 @@ interface IWrapper {
 
 export const Wrapper: FC<IWrapper> = ({ isOpenModal, children }) => {
   return (
-    <div className={`${isOpenModal ? "wrapper--active" : "wrapper--disabled"}`}>
+    <div className={`${styles.wrapper} ${isOpenModal ? styles.wrapperActive : styles.wrapperDisabled}`}>
       {children}
     </div>
   );

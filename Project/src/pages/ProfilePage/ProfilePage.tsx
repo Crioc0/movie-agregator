@@ -1,5 +1,6 @@
 import { Outlet } from "react-router";
-import "./ProfilePage.css";
+
+import styles from './ProfilePage.module.scss'
 import {
   NavigationLinks,
   TLink,
@@ -20,7 +21,7 @@ export const ProfilePage = () => {
   return (
     <>
       <h2>Страница профиля</h2>
-      <div className="nav-links">
+      <div className={styles.navLinks}>
         <NavigationLinks links={links} />
       </div>
 

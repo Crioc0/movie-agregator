@@ -1,0 +1,50 @@
+.formGroup {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+
+  &:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  input {
+    min-width: 340px;
+    padding: 16px;
+    padding-left: 57px;
+    border-radius: 8px;
+    border: 1px solid var(--grey);
+
+    line-height: 24px;
+    font-family: "Play";
+  }
+
+  svg {
+    position: absolute;
+    fill: var(--grey);
+    opacity: 0, 8;
+    left: 16px;
+    top: 16px;
+  }
+
+  &:hover svg {
+    fill: var(--purle);
+    opacity: none;
+  }
+
+  input::placeholder {
+    font-family: "Play";
+    font-size: inherit;
+    line-height: 24px;
+    color: var(--grey);
+  }
+
+  input:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}
+
+.errorMessage {
+  color: var(--error);
+}
+

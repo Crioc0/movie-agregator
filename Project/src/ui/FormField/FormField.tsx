@@ -1,6 +1,6 @@
 import { FC, ReactElement, ReactNode } from "react";
-import "./FormField.css";
 
+import styles from "./FormField.module.scss";
 interface IFormField {
   children: ReactNode;
   errorMessage?: string;
@@ -8,17 +8,15 @@ interface IFormField {
 }
 
 export const FormField: FC<IFormField> = ({ errorMessage, children, icon }) => {
-  {
-    return (
-      <div className="form-group">
-        {icon && <div className="icon-container">{icon}</div>}
-        {children}
-        {errorMessage && (
-          <span className="error-message form__error-message">
-            {errorMessage}
-          </span>
-        )}
-      </div>
-    );
-  }
+  return (
+    <div className={styles.formGroup}>
+      {icon && <div className={styles.iconContainer}>{icon}</div>}
+      {children}
+      {errorMessage && (
+        <span className={`${styles.errorMessage} ${styles.formErrorMessage}`}>
+          {errorMessage}
+        </span>
+      )}
+    </div>
+  );
 };

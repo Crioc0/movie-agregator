@@ -2,6 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import { logout } from "../../api/users";
 import { Button } from "../../ui/Button/Button";
 import "./SettingsPage.css";
+import styles from "./SettingsPage.module.scss";
 import { useNavigate } from "react-router-dom";
 import { querieMovies } from "../../api/querieMovies";
 
@@ -35,24 +36,24 @@ export const SettingsPage = () => {
   );
 
   return (
-    <div className="settings">
-      <ul className="settings__list">
-        <li className="setting__item setting-item">
-          <div className="setting-item__left-block">{firstLetters}</div>
-          <ul className="settings__sublist">
-            <li className="setting__subitem">Имя Фамилия</li>
-            <li className="setting__subitem">
+    <div className={styles.container}>
+      <ul className={styles.settingsList}>
+        <li className={styles.settingsItem}>
+          <div className={styles.leftBlock}>{firstLetters}</div>
+          <ul>
+            <li>Имя Фамилия</li>
+            <li>
               {profile?.name} {profile?.surname}
             </li>
           </ul>
         </li>
-        <li className="setting__item setting-item">
-          <div className="setting-item__left-block">
+        <li className={styles.settingsItem}>
+          <div className={styles.leftBlock}>
             <Mail />
           </div>
-          <ul className="settings__sublist">
-            <li className="setting__subitem">Электронная почта</li>
-            <li className="setting__subitem">{profile?.email}</li>
+          <ul>
+            <li>Электронная почта</li>
+            <li>{profile?.email}</li>
           </ul>
         </li>
       </ul>

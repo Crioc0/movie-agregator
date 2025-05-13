@@ -1,4 +1,4 @@
-import "./AuthModal.css";
+import styles from "./AuthModal.module.scss";
 import { Button } from "../../../ui/Button/Button";
 import { LoginForm } from "../LoginForm.tsx/LoginForm";
 import Logo from "../../../assets/marusya--black.svg";
@@ -48,12 +48,12 @@ export const AuthModal = () => {
       {isOpenModal !== undefined && (
         <Wrapper isOpenModal={isOpenModal}>
           <div
-            className={`form-auth ${
-              isOpenModal ? "form-auth--active" : "form-auth--disabled"
+            className={`${styles.modal} ${
+              isOpenModal ? styles.modalActive : styles.modalDisabled
             } ${authType === "register" && "form-auth--register"}`}
           >
-            <div className="form-auth__header">
-              <img className="form-auth__logo" src={Logo} alt="" />
+            <div className={styles.header}>
+              <img className={styles.logo} src={Logo} alt="" />
             </div>
             <CloseButton handleOpenClick={handleOpenClick} />
             {authType === "auth" ? (

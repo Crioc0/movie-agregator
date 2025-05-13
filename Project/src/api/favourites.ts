@@ -38,8 +38,9 @@ export const getFavourites = async () => {
   }
 };
 
-export const deleteFavourites = async (movieId: number | undefined) => {
+export const deleteFavourites = async (movieId: number | string) => {
   try {
+    console.log(movieId)
     const promise = await axios.delete(`${API_URL}/favorites/${movieId}`, {
       withCredentials: true,
     });

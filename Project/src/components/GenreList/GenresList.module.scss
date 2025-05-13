@@ -1,0 +1,16 @@
+.genreList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 40px;
+  grid-row-gap: 64px;
+  @media (max-width: 990px) {
+      grid-template-columns: repeat(auto-fill, minmax(234px, 1fr));
+      justify-items: center
+    
+  }
+
+  .genreItem {
+    text-decoration: none;
+    max-width: 290px;
+  }
+}

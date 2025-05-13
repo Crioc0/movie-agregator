@@ -1,5 +1,6 @@
 import { NavLink } from "react-router";
-import "./NavigationLinks.css";
+// import "./NavigationLinks.css";
+import styles from "./NavigationLinks.module.scss";
 
 export type TLink = {
   link: string;
@@ -13,10 +14,15 @@ interface NavigationProps {
 export const NavigationLinks = ({ links }: NavigationProps) => {
   return (
     <nav className="nav">
-      <ul className="nav__list">
+      <ul className={styles.navList}>
         {links.map((item: TLink, index) => (
-          <li key={index} className="nav__item">
-            <NavLink className={"link"} to={item.link}>
+          <li key={index} className={styles.navItem}>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? `${styles.link} ${styles.active}` : styles.link
+              }
+              to={item.link}
+            >
               {item.text}
             </NavLink>
           </li>

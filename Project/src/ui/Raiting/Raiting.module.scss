@@ -1,0 +1,47 @@
+.list {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  li:not(:last-child) {
+    margin-right: 16px;
+  }
+
+  &Small {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+}
+
+.raiting {
+  display: flex;
+  color: var(--white);
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: inherit;
+  font-weight: 700;
+
+  &Small {
+    font-size: 12px;
+  }
+}
+
+.title {
+  margin-bottom: 16px;
+  color: var(--white);
+  font-size: var(--size-title);
+  line-height: 117%;
+  font-weight: 700;
+
+  &Small {
+    font-size: inherit
+  }
+}
+
+.info {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.star {
+  width: 16px;
+}

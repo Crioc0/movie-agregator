@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__title {
+  margin-bottom: 24px;
+  color: black;
+}
+
+.form__input {
+  margin-bottom: 15px;
+}
+
+.form__descr {
+}

@@ -1,0 +1,29 @@
+.backlink {
+  display: block;
+  color: white;
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 64px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  .filmList {
+    margin-bottom: 20px;
+  }
+
+  button {
+    align-self: center;
+  }
+}
+
+.filmList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(224px, 1fr));
+  gap: 40px;
+  grid-row-gap: 64px;
+  flex-wrap: wrap;
+}
+

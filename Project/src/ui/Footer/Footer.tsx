@@ -3,40 +3,26 @@ import Ok from "../../assets/ok.svg";
 import Youtube from "../../assets/youtube.svg";
 import Telegram from "../../assets/telegram.svg";
 
-import "./Footer.css";
+import styles from "./Footer.module.scss";
+
+const socialLinks = [
+  { href: "http://vk.com", icon: Vk },
+  { href: "http://youtube.com", icon: Youtube },
+  { href: "http://ok.ru", icon: Ok },
+  { href: "https://web.telegram.org/k/", icon: Telegram },
+];
 
 export const Footer = () => {
   return (
-    <div className="footer">
-      <ul className="link-list">
-        <li className="link-list__item">
-          <a href="http://vk.com" target="_blank" rel="noopener noreferrer">
-            <img src={Vk} alt="" />
-          </a>
-        </li>
-        <li className="link-list__item">
-          <a
-            href="http://youtube.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={Youtube} alt="" />
-          </a>
-        </li>
-        <li className="link-list__item">
-          <a href="http://ok.ru" target="_blank" rel="noopener noreferrer">
-            <img src={Ok} alt="" />
-          </a>
-        </li>
-        <li className="link-list__item">
-          <a
-            href="https://web.telegram.org/k/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={Telegram} alt="" />
-          </a>
-        </li>
+    <div className={styles.footer}>
+      <ul className={styles.linkList}>
+        {socialLinks.map((link, index) => (
+          <li key={index}>
+            <a href={link.href} target="_blank" rel="noopener noreferrer">
+              <img src={link.icon} alt="" />
+            </a>
+          </li>
+        ))}
       </ul>
     </div>
   );
