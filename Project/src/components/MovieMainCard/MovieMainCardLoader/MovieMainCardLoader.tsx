@@ -4,6 +4,7 @@ export const MovieMainCardLoader = () => {
   return (
     <div className={styles.skeleton}>
       <div className={styles.skeletonContent}>
+        <div className={styles.skeletonRaiting}></div>
         <div className={styles.skeletonTitle}></div>
         <div className={styles.skeletonText}></div>
         <div className={styles.skeletonCommand}>

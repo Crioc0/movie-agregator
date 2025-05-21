@@ -13,12 +13,20 @@
   width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding-bottom: 122px;
+
+  .info{
+    margin-bottom: 16px;
+  }
 
   .descr {
+    height: 240px;
+    overflow-y: scroll;
     font-size: var(--size-descr);
     line-height: 133%;
+  }
+
+  .descr::-webkit-scrollbar {
+    width: 0;
   }
 
   @media (max-width: 1040px) {
@@ -26,14 +34,11 @@
   }
 }
 
-.info {
-  margin-bottom: auto;
-}
-
 .imageContainer {
   display: flex;
   width: 50%;
   justify-content: center;
+  height: 552px;
 
   @media (max-width: 1040px) {
     width: 100%;

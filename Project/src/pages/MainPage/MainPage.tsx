@@ -35,7 +35,7 @@ export const MainPage = () => {
       )}
       <div className={styles.container}>
         <h2 className={styles.title}>Топ-10 фильмов</h2>
-        {top10Movies.isLoading && <MovieListByGenreLoader />}
+        {top10Movies.isLoading && <MovieListByGenreLoader type="first" />}
         {top10Movies.isSuccess && (
           <ul className={styles.list}>
             {top10Movies.data.map((item, index) => {

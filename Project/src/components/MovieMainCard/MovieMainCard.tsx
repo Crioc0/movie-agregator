@@ -1,4 +1,3 @@
-
 import styles from "./MovieMainCard.module.scss";
 
 import { TMovie } from "../../types/Movie";
@@ -6,7 +5,7 @@ import { Raiting } from "../../ui/Raiting/Raiting";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { Trailer } from "../Trailer/Trailer";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { CommandButtons } from "../CommandButtons/CommandButtons";
 
 export type TRandomCard = {
@@ -16,6 +15,15 @@ export type TRandomCard = {
 
 export const MovieMainCard: FC<TRandomCard> = ({ movie, type }) => {
   const { isOpenTrailer } = useSelector((state: RootState) => state.trailer);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = movie.posterUrl;
+    img.onload = () => {
+      setIsLoading(false);
+    };
+  }, [movie.posterUrl]);
 
   return (
     <div>
@@ -29,7 +37,15 @@ export const MovieMainCard: FC<TRandomCard> = ({ movie, type }) => {
           <CommandButtons type={type} data={movie} />
         </div>
         <div className={styles.imageContainer}>
-          <img className="movie-img" src={movie.posterUrl} alt={movie.title} />
+          {movie.posterUrl !== null && isLoading ? (
+            <div className={styles.placeholder}></div>
+          ) : (
+            <img
+              className={movie.posterUrl !== null ? styles.image : styles.noImage}
+              src={movie.posterUrl}
+              alt={movie.title}
+            />
+          )}
         </div>
       </div>
       {type === "info" && (
