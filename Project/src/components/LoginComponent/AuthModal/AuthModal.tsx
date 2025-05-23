@@ -2,6 +2,7 @@ import styles from "./AuthModal.module.scss";
 import { Button } from "../../../ui/Button/Button";
 import { LoginForm } from "../LoginForm.tsx/LoginForm";
 import Logo from "../../../assets/marusya--black.svg";
+import User from "../../../assets/user.svg";
 import { RegisterForm } from "../RegisterForm/RegisterForm";
 import { NavLink } from "react-router";
 
@@ -33,9 +34,14 @@ export const AuthModal = () => {
   return (
     <>
       {profile === undefined && (
-        <Button style="auth" type="button" onClick={handleOpenClick}>
-          Войти
-        </Button>
+        <>
+          <Button style="auth" type="button" onClick={handleOpenClick}>
+            Войти
+          </Button>
+          <Button style="auth" type="button" onClick={handleOpenClick}>
+            {User}
+          </Button>
+        </>
       )}
       {status === "success" && (
         <NavLink className={"link"} to={"/profile"}>

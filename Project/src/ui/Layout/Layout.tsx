@@ -10,33 +10,31 @@ import { FavouriteMoviesPage } from "../../pages/FavouriteMoviesPage/FavouriteMo
 import { SettingsPage } from "../../pages/SettingsPage/SettingsPage";
 import { Footer } from "../Footer/Footer";
 import { GenresPage } from "../../pages/GenresPage/GenresPage";
+import { MobileHeader } from "../Header/MobileHeader/MobileHeader";
 
 export const Layout = (): ReactNode => {
   return (
     <>
       <BrowserRouter>
         <Header />
-          <Routes>
-            <Route path="/" element={<MainPage key={"main-page"} />} />
-            <Route path="/genres" element={<GenresPage />} />
-            <Route path="/genres/:genre" element={<MovieListByGenre />} />
-            <Route path="/movie/:id" element={<MovieInfoPage />} />
-            <Route path="/profile" element={<ProfilePage />}>
-              <Route
-                index
-                element={<Navigate to="/profile/settings" replace />}
-              />
-              <Route
-                path="/profile/favourites"
-                element={<FavouriteMoviesPage />}
-              />
-              <Route
-                index
-                path="/profile/settings"
-                element={<SettingsPage />}
-              />
-            </Route>
-          </Routes>
+        <MobileHeader />
+        <Routes>
+          <Route path="/" element={<MainPage key={"main-page"} />} />
+          <Route path="/genres" element={<GenresPage />} />
+          <Route path="/genres/:genre" element={<MovieListByGenre />} />
+          <Route path="/movie/:id" element={<MovieInfoPage />} />
+          <Route path="/profile" element={<ProfilePage />}>
+            <Route
+              index
+              element={<Navigate to="/profile/settings" replace />}
+            />
+            <Route
+              path="/profile/favourites"
+              element={<FavouriteMoviesPage />}
+            />
+            <Route index path="/profile/settings" element={<SettingsPage />} />
+          </Route>
+        </Routes>
       </BrowserRouter>
       <Footer />
     </>
