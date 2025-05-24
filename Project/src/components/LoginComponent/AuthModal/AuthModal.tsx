@@ -35,19 +35,30 @@ export const AuthModal = () => {
     <>
       {profile === undefined && (
         <>
-          <Button style="auth" type="button" onClick={handleOpenClick}>
-            Войти
-          </Button>
-          <Button style="auth" type="button" onClick={handleOpenClick}>
-            {User}
-          </Button>
+          <div className={styles.authDesctop}>
+            <Button style="auth" type="button" onClick={handleOpenClick}>
+              Войти
+            </Button>
+          </div>
+          <div className={styles.authMobile}>
+            <Button style="mobile" type="button" onClick={handleOpenClick}>
+              <img src={User} alt="" />
+            </Button>
+          </div>
         </>
       )}
       {status === "success" && (
         <NavLink className={"link"} to={"/profile"}>
-          <Button style="auth" type="button">
-            {data.name}
-          </Button>
+          <div className={styles.authDesctop}>
+            <Button style="auth" type="button">
+              {data.name}
+            </Button>
+          </div>
+          <div className={styles.authMobile}>
+            <Button style="mobile" type="button">
+              <img src={User} alt="" />
+            </Button>
+          </div>
         </NavLink>
       )}
 

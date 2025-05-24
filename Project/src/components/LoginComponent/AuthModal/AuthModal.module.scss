@@ -1,7 +1,5 @@
 .modal {
   border-radius: 24px;
-  left: 0;
-  top: 0;
   display: flex;
   align-items: center;
   transform: translate(-50%, -50%);
@@ -13,6 +11,10 @@
   background-color: #fff;
   z-index: 3;
   position: relative;
+
+  @media (max-width: 475px) {
+    padding: 64px 20px;
+  }
 
   &Active {
     animation-duration: 0.55s;
@@ -57,4 +59,18 @@
 }
 .logo {
   align-self: center;
+}
+
+.authMobile {
+  display: none;
+  @media (max-width: 868px) {
+    display: block;
+  }
+}
+
+.authDesctop {
+  display: block;
+  @media (max-width: 868px) {
+    display: none;
+  }
 }

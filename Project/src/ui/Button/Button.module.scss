@@ -6,13 +6,14 @@
   border: none;
   border-radius: 28px;
   font-weight: 700;
-font-size: inherit;
+  font-size: inherit;
   line-height: 133%;
   transition: all 0.2s;
 }
 
 .primary {
   background-color: var(--blue);
+  width: inherit;
 }
 
 .secondary {
@@ -20,6 +21,10 @@ font-size: inherit;
   &:hover {
     background-color: var(--white);
     color: var(--black);
+  }
+  @media (max-width:475px) {
+    padding: 16px 40px;
+    
   }
 }
 
@@ -45,4 +50,17 @@ font-size: inherit;
   background-color: inherit;
   color: var(--white);
   background-color: inherit;
+}
+
+.mobile {
+  display: none;
+  padding: 5px 0;
+  border: none;
+  background-color: inherit;
+  color: var(--white);
+  background-color: inherit;
+
+  @media (max-width: 868px) {
+    display: block;
+  }
 }

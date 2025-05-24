@@ -3,6 +3,9 @@
   position: relative;
   flex-direction: column;
   align-items: center;
+  @media (max-width: 445px) {
+    max-width: 295px;
+  }
 
   &:not(:last-child) {
     margin-bottom: 24px;
@@ -14,9 +17,11 @@
     padding-left: 57px;
     border-radius: 8px;
     border: 1px solid var(--grey);
-
     line-height: 24px;
     font-family: "Play";
+    @media (max-width: 445px) {
+      min-width: 220px;
+    }
   }
 
   svg {
@@ -47,4 +52,3 @@
 .errorMessage {
   color: var(--error);
 }
-

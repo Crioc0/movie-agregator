@@ -6,9 +6,25 @@
   position: relative;
   align-items: center;
 
+  @media (max-width: 868px) {
+    display: none;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    max-width: 768px;
+    left: 2%;
+    z-index: 10;
+    width: 96%;
+  }
+
   .logo {
     position: absolute;
     left: 12px;
+  }
+
+  .mobileClose {
+    position: absolute;
+    right: 12px;
   }
 
   .input {
@@ -41,5 +57,16 @@
       margin-right: 16px;
     }
   }
+
+  .active {
+    @media (max-width: 868px) {
+      display: flex;
+    }
+  }
 }
 
+.active {
+  @media (max-width: 868px) {
+    display: flex;
+  }
+}

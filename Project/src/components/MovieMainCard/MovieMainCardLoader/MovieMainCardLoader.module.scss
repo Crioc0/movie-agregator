@@ -1,10 +1,11 @@
 .skeleton {
   display: flex;
   color: #fff;
-  max-height: 552px;
+  max-height: 100%;
 
   @media (max-width: 1040px) {
     flex-direction: column-reverse;
+    align-items: center;
   }
 }
 
@@ -13,12 +14,20 @@
   width: 50%;
   display: flex;
   flex-direction: column;
+  @media (max-width: 1040px) {
+    width: 100%;
+  }
 }
 
 .skeletonImage {
   display: flex;
   width: 50%;
   justify-content: center;
+  @media (max-width: 1040px) {
+    width: 85%;
+    margin-bottom: 16px;
+    height: 438px;
+  }
 
   .skeletonImageContent {
     display: block;
@@ -29,6 +38,10 @@
     border-radius: 8px;
     animation: 1.5s shine linear infinite;
     aspect-ratio: 2/3;
+    @media (max-width: 1040px) {
+      height: 100%;
+      width: 100%;
+    }
   }
 }
 
@@ -69,6 +82,9 @@
   border-radius: 8px;
   animation: 1.5s shine linear infinite;
   aspect-ratio: 2/3;
+  @media (max-width: 1040px) {
+    height: 140px;
+  }
 }
 
 .skeletonCommand {

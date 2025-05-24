@@ -1,4 +1,4 @@
-import styles from './Button.module.scss'
+import styles from "./Button.module.scss";
 
 type TProps = {
   type: "submit" | "button";
@@ -8,7 +8,8 @@ type TProps = {
     | "icon"
     | "withoutBorder"
     | "secondary"
-    | "delete";
+    | "delete"
+    | "mobile";
   children: React.ReactNode;
   value?: number | undefined;
   onClick?: () => void;
@@ -26,7 +27,7 @@ export const Button = ({
     <button
       disabled={disabled}
       value={value}
-      className={`${styles.button} ${styles[style]}` }
+      className={`${styles.button} ${styles[style]}`}
       onClick={onClick}
     >
       {children}

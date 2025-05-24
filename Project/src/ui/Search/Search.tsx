@@ -2,15 +2,18 @@ import { ChangeEventHandler, useState } from "react";
 import { TMovie } from "../../types/Movie";
 import styles from "./Search.module.scss";
 import SearchLogo from "../../assets/search.svg";
+import Cross from "../../assets/close.svg";
 import { useQuery } from "@tanstack/react-query";
 import { getMovieByTitle } from "../../api/movies";
 import { Link } from "react-router";
 import { Raiting } from "../Raiting/Raiting";
 
 import { SearchLoader } from "./SearchLoader/SearchLoader";
+import { Button } from "../Button/Button";
 
 export const Search = () => {
   const [filter, setFilter] = useState("");
+  const [isActive, setIsActive] = useState(false);
   const moviesQuerry = useQuery({
     queryKey: ["movies", filter],
     queryFn: () => getMovieByTitle(filter),
@@ -21,7 +24,17 @@ export const Search = () => {
   };
   return (
     <>
-      <div className={styles.inputContainer}>
+      {!isActive && (
+        <Button
+          style="mobile"
+          type="button"
+          onClick={() => setIsActive(!isActive)}
+        >
+          <img src={SearchLogo} alt="" />
+        </Button>
+      )}
+
+      <div className={`${styles.inputContainer} ${isActive && styles.active}`}>
         <img className={styles.logo} src={SearchLogo} alt="" />
         <input
           className={styles.input}
@@ -29,6 +42,15 @@ export const Search = () => {
           value={filter}
           onChange={handleChangeFilter}
         />
+        <div className={styles.mobileClose}>
+          <Button
+            style="mobile"
+            type="button"
+            onClick={() => setIsActive(!isActive)}
+          >
+            <img src={Cross} alt="" />
+          </Button>
+        </div>
 
         {filter !== "" &&
           (moviesQuerry.isLoading ? (
