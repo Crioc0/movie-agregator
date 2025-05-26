@@ -1,8 +1,6 @@
 import Logo from "../../assets/marusya.svg";
 import { Link } from "react-router-dom";
 
-import { Search } from "../Search/Search";
-
 import styles from './Header.module.scss'
 import { AuthModal } from "../../components/LoginComponent/AuthModal/AuthModal";
 import {
@@ -10,6 +8,7 @@ import {
   TLink,
 } from "../../components/NavigationLinks/NavigationLinks";
 import React from "react";
+import { Search } from "../Search/Search";
 
 const links: TLink[] = [
   {

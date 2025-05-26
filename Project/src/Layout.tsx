@@ -1,23 +1,24 @@
 import { ReactNode } from "react";
-import { Header } from "../Header/Header";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { MainPage } from "../../pages/MainPage/MainPage";
+import { MainPage } from "./pages/MainPage/MainPage";
 
-import { MovieListByGenre } from "../../pages/MovieListByGenre/MovieListByGenre";
-import { MovieInfoPage } from "../../pages/MovieInfoPage/MovieInfoPage";
-import { ProfilePage } from "../../pages/ProfilePage/ProfilePage";
-import { FavouriteMoviesPage } from "../../pages/FavouriteMoviesPage/FavouriteMoviesPage";
-import { SettingsPage } from "../../pages/SettingsPage/SettingsPage";
-import { Footer } from "../Footer/Footer";
-import { GenresPage } from "../../pages/GenresPage/GenresPage";
-import { MobileHeader } from "../Header/MobileHeader/MobileHeader";
+import { MovieListByGenre } from "./pages/MovieListByGenre/MovieListByGenre";
+import { MovieInfoPage } from "./pages/MovieInfoPage/MovieInfoPage";
+import { ProfilePage } from "./pages/ProfilePage/ProfilePage";
+import { FavouriteMoviesPage } from "./pages/FavouriteMoviesPage/FavouriteMoviesPage";
+import { SettingsPage } from "./pages/SettingsPage/SettingsPage";
+import { Footer } from "./components/Footer/Footer";
+import { GenresPage } from "./pages/GenresPage/GenresPage";
+import { MobileHeader } from "./components/Header/MobileHeader/MobileHeader";
+import { Header } from "./components/Header/Header";
 
 export const Layout = (): ReactNode => {
   return (
     <>
       <BrowserRouter>
-        <Header />
         <MobileHeader />
+        <Header />
+
         <Routes>
           <Route path="/" element={<MainPage key={"main-page"} />} />
           <Route path="/genres" element={<GenresPage />} />

@@ -6,10 +6,11 @@ import Cross from "../../assets/close.svg";
 import { useQuery } from "@tanstack/react-query";
 import { getMovieByTitle } from "../../api/movies";
 import { Link } from "react-router";
-import { Raiting } from "../Raiting/Raiting";
+import { Raiting } from "../../components/Raiting/Raiting";
 
 import { SearchLoader } from "./SearchLoader/SearchLoader";
-import { Button } from "../Button/Button";
+import { Button } from "../../ui/Button/Button";
+
 
 export const Search = () => {
   const [filter, setFilter] = useState("");

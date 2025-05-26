@@ -65,16 +65,24 @@ export const loginUser = async ({
   email,
   password,
 }: TLoginFormData): Promise<void> => {
-  await axios.post(
-    `${API_URL}/auth/login`,
-    {
-      email: email,
-      password: password,
-    },
-    {
-      withCredentials: true,
+  try {
+    await axios.post(
+      `${API_URL}/auth/login`,
+      {
+        email: email,
+        password: password,
+      },
+      {
+        withCredentials: true,
+      }
+    );
+  } catch (e) {
+    if (axios.isAxiosError(e)) {
+      if (e.response?.status === 400) {
+        throw new Error("Нет такого пользователя или неверный пароль");
+      }
     }
-  );
+  }
 };
 
 export const fetchMe = async () => {

@@ -1,7 +1,7 @@
 import styles from "./MovieMainCard.module.scss";
 
 import { TMovie } from "../../types/Movie";
-import { Raiting } from "../../ui/Raiting/Raiting";
+import { Raiting } from "../Raiting/Raiting";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { Trailer } from "../Trailer/Trailer";

@@ -25,7 +25,7 @@ body {
   box-sizing: border-box;
 }
 
-p{
+p {
   margin: 0;
 }
 
@@ -81,6 +81,11 @@ body {
 
 .error-message {
   color: var(--error);
+}
+@media (max-width: 475px) {
+  .error-message {
+    max-width: 295px;
+  }
 }
 
 @media (max-width: 1340px) {

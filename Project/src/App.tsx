@@ -1,6 +1,6 @@
 import { QueryClientProvider } from "@tanstack/react-query";
 
-import { Layout } from "./ui/Layout/Layout";
+import { Layout } from "./Layout";
 import { querieMovies } from "./api/querieMovies";
 
 import { Provider } from "react-redux";

@@ -13,7 +13,7 @@
   position: relative;
 
   @media (max-width: 475px) {
-    padding: 64px 20px;
+    padding: 44px 20px 25px 20px;
   }
 
   &Active {
@@ -56,6 +56,9 @@
   margin-bottom: 40px;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 475px) {
+    margin-bottom: 32px;
+  }
 }
 .logo {
   align-self: center;
